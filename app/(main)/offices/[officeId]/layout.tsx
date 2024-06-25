@@ -31,7 +31,7 @@ const OfficeIdLayout = async ({children, params}: {children:React.ReactNode; par
     return (
         <div className="h-full">
             <div className="hidden fixed md:flex h-full w-60 z-20 flex-col inset-y-0">
-                <OfficeSidebar/>
+                <OfficeSidebar officeId={params.officeId}/>
             </div>
             <main className="h-full md:pl-60">
                 {children}

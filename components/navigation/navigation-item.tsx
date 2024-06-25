@@ -35,11 +35,11 @@ export const NavigationItem = ({
                 className="group relative flex items-center"
             >
                 <div className={cn(
-                    "absolute left-0 bg-primary rounded-sm transition-all w-[4px]",
+                    "absolute left-0 bg-primary rounded-md transition-all w-[4px]",
                     params?.officeId === id && "h-[36px]"
                 )} />
                 <div className={cn(
-                    "relative group flex mx-3 h-[48px] w-[48px] rounded-sm transition-all overflow-hidden",
+                    "relative group flex mx-3 h-[48px] w-[48px] rounded-md transition-all overflow-hidden",
                     params?.officeId === id && ""
                 )}>
                     <Image

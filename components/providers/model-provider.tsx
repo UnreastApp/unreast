@@ -1,7 +1,9 @@
 "use client";
 
-import { CreateOfficeModal } from "@/components/modals/create-office-modal";
 import { useEffect, useState } from "react";
+
+import { CreateOfficeModal } from "@/components/modals/create-office-modal";
+import { InviteModal } from "../modals/invite-modal";
 
 export const ModalProvider = () => {
 
@@ -19,6 +21,7 @@ export const ModalProvider = () => {
     return(
         <>
             <CreateOfficeModal/>
+            <InviteModal/>
         </>
     )
 }

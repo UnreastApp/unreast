@@ -30,7 +30,7 @@ const NavigationSideBar = async () => {
     })
 
     return ( 
-        <div className="flex flex-col items-center h-full space-y-4 w-full bg-white dark:bg-card"> 
+        <div className="flex flex-col items-center h-full space-y-4 w-full bg-card dark:bg-card"> 
             <NavigationAction/>
             <Separator className="h-[2px] rounded-md w-10 mx-auto"/>
             <ScrollArea className="flex-1 w-full">
@@ -46,7 +46,7 @@ const NavigationSideBar = async () => {
             </ScrollArea>
             <div className="pb-3 mt-auto flex items-center flex-col gap-y-4">
                 <ModeToggle/>
-                <UserButton afterSignOutUrl="/app" appearance={{elements: {avatarBox: "h-[48px] w-[48px] rounded-sm"}}}/>
+                <UserButton afterSignOutUrl="/app" appearance={{elements: {avatarBox: "h-[48px] w-[48px] rounded-md"}}}/>
             </div>
         </div>
      );
