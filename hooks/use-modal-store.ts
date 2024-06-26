@@ -1,7 +1,7 @@
 import { Office } from "@prisma/client";
 import {create} from "zustand";
 
-export type ModalType = "createOffice" | "invite";
+export type ModalType = "createOffice" | "invite" | "editOffice" | "members" | "createChannel";
 
 interface ModalData {
     office?: Office

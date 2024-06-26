@@ -4,55 +4,45 @@
 
 
 
-
 @layer base {
-  :root {
-    --background: 334 0% 94.77%;
-    --foreground: 334 55% 1%;
-    --muted: 334 0% 100%;
-    --muted-foreground: 334 0.07% 59.82%;
-    --popover: 334 62% 100%;
-    --popover-foreground: 334 0% 0%;
-    --card: 334 62% 100%;
-    --card-foreground: 334 0% 0%;
-    --border: 334 5% 95%;
-    --input: 334 5% 95%;
-    --primary: 226.73 69.15% 50.12%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 334 0% 91.69%;
-    --secondary-foreground: 334 0% 0%;
-    --accent: 334 0% 94.31%;
-    --accent-foreground: 246.75 66.67% 52.94%;
-    --destructive: 0 86.99% 48.24%;
-    --destructive-foreground: 18 0% 100%;
-    --ring: 334 0% 100%;
-    --radius: 0.5rem;
-  }
 
-  .dark {
-    --background: 217.5 9.09% 17.25%;
-    --foreground: 334 0% 100%;
-    --muted: 210 9.09% 12.94%;
-    --muted-foreground: 334 0% 60.77%;
-    --popover: 210 9.09% 12.94%;
-    --popover-foreground: 334 0% 100%;
-    --card: 210 9.09% 12.94%;
-    --card-foreground: 334 0% 100%;
-    --border: 334 0% 18.46%;
-    --input: 214.29 5.04% 27.25%;
-    --primary: 226.73 69.15% 50.12%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 214.29 5.04% 27.25%;
-    --secondary-foreground: 334 0% 100%;
-    --accent: 217.5 9.09% 17.25%;
-    --accent-foreground: 246.75 66.67% 52.94%;
-    --destructive: 0 86.89% 48.16%;
-    --destructive-foreground: 0 0% 100%;
-    --ring: 217.5 9.09% 17.25%;
+  :root {
+
+    /* 
+    
+    white: 0 0% 100%;
+    black: 240 10% 3.9%;
+    pink: 346.8 77.2% 49.8%;
+    light-pink: 355.7 100% 97.3%;
+    gray: 240 5.9% 90%;
+    light-gray: 240 4.8% 95.9%;
+    red: 0 84.2% 60.2%;
+
+    */
+
+
+    --background: 0 0% 100%;                       /* White */
+    --foreground: 240 10% 3.9%;                    /* Black */
+    --card: 0 0% 100%;                             /* White */
+    --card-foreground: 240 10% 3.9%;               /* Black */
+    --popover: 0 0% 100%;                          /* White */
+    --popover-foreground: 240 10% 3.9%;            /* Black */
+    --primary: 346.8 77.2% 49.8%;                  /* Pink */  
+    --primary-foreground: 355.7 100% 97.3%;        /* Light Pink */
+    --secondary: 240 4.8% 95.9%;                   /* Light Gray */
+    --secondary-foreground: 240 10% 3.9%;          /* Black */
+    --muted: 240 4.8% 95.9%;                       /* Light Gray */
+    --muted-foreground: 240 5.9% 90%;              /* Gray */
+    --accent: 240 4.8% 95.9%;                      /* Light Gray */
+    --accent-foreground: 240 10% 3.9%;             /* Black */
+    --destructive: 0 84.2% 60.2%;                  /* Red */
+    --destructive-foreground: 0 0% 100%;           /* White */
+    --border: 240 5.9% 90%;                        /* Gray  */
+    --input: 240 5.9% 90%;                         /* Gray */
+    --ring: 346.8 77.2% 49.8%;                     /* Pink */
+    --radius: 0.5rem; 
   }
 }
-
-
 
 
 @layer base {

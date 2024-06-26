@@ -3,7 +3,10 @@
 import { useEffect, useState } from "react";
 
 import { CreateOfficeModal } from "@/components/modals/create-office-modal";
-import { InviteModal } from "../modals/invite-modal";
+import { InviteModal } from "@/components/modals/invite-modal";
+import { EditOfficeModal } from "@/components/modals/edit-office-modal";
+import { MembersModal } from "@/components/modals/members-modal";
+import { CreateChannelModal } from "@/components/modals/create-channel-model";
 
 export const ModalProvider = () => {
 
@@ -22,6 +25,9 @@ export const ModalProvider = () => {
         <>
             <CreateOfficeModal/>
             <InviteModal/>
+            <EditOfficeModal/>
+            <MembersModal/>
+            <CreateChannelModal/>
         </>
     )
 }

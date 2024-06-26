@@ -22,9 +22,9 @@ export const NavigationAction = () => {
     return (
         <div>
             <ActionTooltip side="right" align="center" label="Home">
-                <button onClick={returnHome} className="group mt-3 flex items-center">
+                <button onClick={returnHome} className="group bg mt-3 flex items-center">
                     <div className="flex mx-3 h-[48px] w-[48px] rounded-md overflow-hidden items-center justify-center
-                    bg-background group-hover:bg-primary">
+                     group-hover:bg-primary">
                         <Home className="text-primary group-hover:text-white transition-all" />
                     </div>
                 </button>

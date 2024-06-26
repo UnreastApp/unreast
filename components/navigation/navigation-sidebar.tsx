@@ -30,7 +30,7 @@ const NavigationSideBar = async () => {
     })
 
     return ( 
-        <div className="flex flex-col items-center h-full space-y-4 w-full bg-card dark:bg-card"> 
+        <div className="flex flex-col items-center h-full space-y-4 w-full border-r-2"> 
             <NavigationAction/>
             <Separator className="h-[2px] rounded-md w-10 mx-auto"/>
             <ScrollArea className="flex-1 w-full">

@@ -32,6 +32,7 @@ import {
     FormLabel,
     FormMessage,
 } from "@/components/ui/form"
+import { useEffect } from "react";
 
 
 
@@ -46,12 +47,14 @@ const formSchema = z.object({
 })
 
 
-export const CreateOfficeModal = () => {
+export const EditOfficeModal = () => {
 
-    const {isOpen, onClose, type} = useModal();
+    const {isOpen, onClose, type, data} = useModal();
     const router = useRouter();
 
-    const isModalOpen = isOpen && type === "createOffice";
+    const isModalOpen = isOpen && type === "editOffice";
+
+    const { office } = data;
 
     // Office form
     const form = useForm({
@@ -62,12 +65,19 @@ export const CreateOfficeModal = () => {
         }
     });
 
+    useEffect(() => {
+        if (office) {
+            form.setValue("name", office.name);
+            form.setValue("imageUrl", office.imageUrl);
+        }
+    }, [office, form]);
+
     const isLoading = form.formState.isSubmitting;
 
     // When the user clicks on "create office"
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
-            await axios.post("api/offices", values);
+            await axios.patch(`/api/offices/${office?.id}`, values);
 
             form.reset();
             router.refresh();
@@ -83,20 +93,21 @@ export const CreateOfficeModal = () => {
         onClose();
     }
 
+    const createClose = () => {
+        onClose();
+    }
+
     return (
         <Dialog open={isModalOpen} onOpenChange={handleClose} >
             <DialogContent className="overflow-hidden">
                 <DialogHeader className="pt-8 px-6">
                     <DialogTitle className="text-center text-2xl font-bold">
-                        Create your Office
+                        Edit your Office
                     </DialogTitle>
-                    <DialogDescription className="text-center text-foreground/50">
-                        Personalize your office with a name and photo. You can allways change it later.
-                    </DialogDescription>
                 </DialogHeader>
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-                        <div className="space-y-8  px-6">
+                        <div className="space-y-8 px-6">
 
                             <div className="flex items-center justify-center text-center">
                                 <FormField
@@ -133,13 +144,12 @@ export const CreateOfficeModal = () => {
                                             />
                                         </FormControl>
                                         <FormMessage/>
-                                        <p className="font-light text-xs">By creating a office, you agree to Unreast <a target="_blank" href="/guidelines" className="text-primary">Community Guidelines</a></p>
                                     </FormItem>
                             )}/>
                             
                         </div>
                         <DialogFooter>
-                            <Button disabled={isLoading} onClick={() => onClose()}>Create</Button>
+                            <Button disabled={isLoading} onClick={createClose}>Save</Button>
                         </DialogFooter>
                     </form>
                 </Form>
