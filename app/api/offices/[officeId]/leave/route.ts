@@ -1,5 +1,4 @@
 import { currentProfile } from "@/lib/current-profile";
-import {v4 as uuidv4} from "uuid";
 import { db } from "@/lib/db";
 import { NextResponse } from "next/server";
 
@@ -20,22 +19,23 @@ export async function PATCH(req:Request, {params}: {params: {officeId: string}})
                 id: params.officeId,
                 member: {
                     some: {
-                        OR: [
-                            {role: "ADMIN"},
-                            {role: "MODERATOR"}
-                        ]
+                        profileId: profile.id
                     }
                 }
             },
             data: {
-                inviteCode: uuidv4(),
+                member: {
+                    deleteMany: {
+                        profileId: profile.id
+                    }
+                }
             }
         });
 
         return NextResponse.json(office);
 
     } catch (error) {
-        console.log("[OFFICE_ID]", error);
+        console.log("[OFFICE_ID_LEAVE]", error);
         return new NextResponse("Internal Error", {status: 500})
     }
 }

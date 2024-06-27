@@ -40,6 +40,7 @@ import {
     SelectTrigger, 
     SelectValue
 } from "@/components/ui/select";
+import { useEffect } from "react";
 
 
 
@@ -58,26 +59,34 @@ const formSchema = z.object({
 
 export const CreateChannelModal = () => {
 
-    const {isOpen, onClose, type} = useModal();
+    const {isOpen, onClose, type, data} = useModal();
     const router = useRouter();
     const params = useParams();
 
     const isModalOpen = isOpen && type === "createChannel";
 
+    const {channelType} = data;
+
     const form = useForm({
         resolver: zodResolver(formSchema),
         defaultValues: {
             name: "",
-            type: ChannelType.TEXT,
+            type: channelType || ChannelType.TEXT,
         }
     });
+
+    useEffect(() => {
+        if (channelType) {
+            form.setValue("type", channelType);
+        }
+    }, [channelType, form]);
 
     const isLoading = form.formState.isSubmitting;
 
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
             const url = qs.stringifyUrl({
-                url: "/api/channels",
+                url: "/api/channels/create",
                 query: {
                     officeId: params?.officeId
                 }
@@ -118,15 +127,15 @@ export const CreateChannelModal = () => {
                                 name="name" 
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel className="uppercase text-xs">
+                                        <FormLabel className="uppercase">
                                             Channel Name
                                         </FormLabel>
                                         <FormControl>
                                             <Input
-                                                disabled={isLoading} 
-                                                className="" 
+                                                disabled={isLoading}  
                                                 placeholder="Enter channel name"
                                                 {...field}
+                                                className="bg-transparent"
                                             />
                                         </FormControl>
                                         <FormMessage/>
@@ -136,11 +145,11 @@ export const CreateChannelModal = () => {
                                 control={form.control}
                                 name="type"
                                 render={({field}) => (
-                                    <FormItem>
+                                    <FormItem className="uppercase">
                                         <FormLabel>Channel Type</FormLabel>
                                         <Select disabled={isLoading} onValueChange={field.onChange} defaultValue={field.value}>
                                             <FormControl>
-                                                <SelectTrigger className="border-0">
+                                                <SelectTrigger>
                                                     <SelectValue placeholder="Select a channel type"/>
                                                     <SelectContent>
                                                         {Object.values(ChannelType).map((type) => (
@@ -156,8 +165,11 @@ export const CreateChannelModal = () => {
                                 )}
                             />
                         </div>
-                        <DialogFooter>
-                            <Button disabled={isLoading} onClick={() => onClose()}>Create</Button>
+                        <DialogFooter className="px-6 py-4">
+                            <div className="flex items-center justify-between w-full">
+                                <Button disabled={isLoading} onClick={onClose} variant="ghost">Cancel</Button>
+                                <Button disabled={isLoading} onClick={() => onClose()}>Create</Button>
+                            </div>
                         </DialogFooter>
                     </form>
                 </Form>

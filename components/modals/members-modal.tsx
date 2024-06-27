@@ -57,14 +57,15 @@ export const MembersModal = () => {
     const onKick = async (memberId: string) => {
         try {
             setLoadingId(memberId);
-            const url = qs.stringifyUrl({
-                url: `/api/members/${memberId}`,
+
+            const kickUrl = qs.stringifyUrl({
+                url: `/api/members/${memberId}/kick`,
                 query: {
                     officeId: office?.id
                 }
             });
 
-            const response = await axios.delete(url);
+            const response = await axios.delete(kickUrl);
 
             router.refresh();
             onOpen("members", { office: response.data })
@@ -79,14 +80,14 @@ export const MembersModal = () => {
     const onRoleChange = async (memberId: string, role: MemberRole) => {
         try {
             setLoadingId(memberId);
-            const url = qs.stringifyUrl({
-                url: `/api/members/${memberId}`,
+            const roleUrl = qs.stringifyUrl({
+                url: `/api/members/${memberId}/role`,
                 query: {
                     officeId: office?.id
                 }
             });
 
-            const response = await axios.patch(url, {role});
+            const response = await axios.patch(roleUrl, {role});
 
             router.refresh();
             onOpen("members", {office: response.data})

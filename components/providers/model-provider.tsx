@@ -7,6 +7,8 @@ import { InviteModal } from "@/components/modals/invite-modal";
 import { EditOfficeModal } from "@/components/modals/edit-office-modal";
 import { MembersModal } from "@/components/modals/members-modal";
 import { CreateChannelModal } from "@/components/modals/create-channel-model";
+import { LeaveOfficeModal } from "@/components/modals/leave-office-modal";
+import { DeleteOfficeModal } from "../modals/delete-office-modal";
 
 export const ModalProvider = () => {
 
@@ -28,6 +30,8 @@ export const ModalProvider = () => {
             <EditOfficeModal/>
             <MembersModal/>
             <CreateChannelModal/>
+            <LeaveOfficeModal/>
+            <DeleteOfficeModal/>
         </>
     )
 }

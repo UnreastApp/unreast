@@ -33,7 +33,7 @@ export const OfficeHeader = ({office, role}: OfficeHeaderProps) => {
         <DropdownMenu>
 
             <DropdownMenuTrigger className="focus:outline-none" asChild>
-                <button className="w-full text-sm text-foreground hover:bg-border/50 rounded-md px-3 flex items-center h-12">
+                <button className="w-full text-sm font-medium text-foreground hover:bg-border/50 rounded-md px-3 flex items-center h-12">
                     {office.name}
                     <ChevronDown className="h-5 w-5 ml-auto"/>
                 </button>
@@ -54,7 +54,7 @@ export const OfficeHeader = ({office, role}: OfficeHeaderProps) => {
                 {(isAdmin || isModerator) && (
                     <DropdownMenuItem 
                         onClick={() => onOpen("editOffice", {office})} 
-                        className="cursor-pointer hover:bg-border px-3 py-2">
+                        className="cursor-pointer hover:bg-border font-medium px-3 py-2">
                         Office Settings
                         <Settings className="h-4 w-4 ml-auto"/>
                     </DropdownMenuItem>
@@ -62,7 +62,7 @@ export const OfficeHeader = ({office, role}: OfficeHeaderProps) => {
                 {(isAdmin || isModerator) && (
                     <DropdownMenuItem 
                         onClick={() => onOpen("members", {office})}
-                        className="cursor-pointer hover:bg-border px-3 py-2">
+                        className="cursor-pointer hover:bg-border font-medium px-3 py-2">
                         Manage Members
                         <Users className="h-4 w-4 ml-auto"/>
                     </DropdownMenuItem>
@@ -70,20 +70,24 @@ export const OfficeHeader = ({office, role}: OfficeHeaderProps) => {
                 {(isAdmin || isModerator) && (
                     <DropdownMenuItem 
                         onClick={() => onOpen("createChannel", {office})}
-                        className="cursor-pointer hover:bg-border px-3 py-2">
+                        className="cursor-pointer hover:bg-border font-medium px-3 py-2">
                         Create Channel
                         <Plus className="h-4 w-4 ml-auto"/>
                     </DropdownMenuItem>
                 )}
                 <Separator/>
                 {( isModerator || isGuest) && (
-                    <DropdownMenuItem className="cursor-pointer hover:bg-border font-medium text-destructive/80 px-3 py-2">
+                    <DropdownMenuItem 
+                    onClick={() => onOpen("leaveOffice", {office})}
+                    className="cursor-pointer hover:bg-border font-medium text-destructive/80 px-3 py-2">
                         Leave Office
                         <LogOut className="h-4 w-4 ml-auto"/>
                     </DropdownMenuItem>
                 )}
                 {(isAdmin) && (
-                    <DropdownMenuItem className="cursor-pointer hover:bg-primary-foreground font-medium text-destructive/80 px-3 py-2">
+                    <DropdownMenuItem 
+                    onClick={() => onOpen("deleteOffice", {office})}
+                    className="cursor-pointer hover:bg-primary-foreground font-medium text-destructive/80 px-3 py-2">
                         Delete Office
                         <Trash className="h-4 w-4 ml-auto"/>
                     </DropdownMenuItem>

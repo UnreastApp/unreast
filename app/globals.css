@@ -32,13 +32,13 @@
     --secondary: 240 4.8% 95.9%;                   /* Light Gray */
     --secondary-foreground: 240 10% 3.9%;          /* Black */
     --muted: 240 4.8% 95.9%;                       /* Light Gray */
-    --muted-foreground: 240 5.9% 90%;              /* Gray */
+    --muted-foreground: 240 5.9% 70%;              /* Gray */
     --accent: 240 4.8% 95.9%;                      /* Light Gray */
     --accent-foreground: 240 10% 3.9%;             /* Black */
     --destructive: 0 84.2% 60.2%;                  /* Red */
     --destructive-foreground: 0 0% 100%;           /* White */
     --border: 240 5.9% 90%;                        /* Gray  */
-    --input: 240 5.9% 90%;                         /* Gray */
+    --input: 240 5.9% 70%;                         /* Gray */
     --ring: 346.8 77.2% 49.8%;                     /* Pink */
     --radius: 0.5rem; 
   }

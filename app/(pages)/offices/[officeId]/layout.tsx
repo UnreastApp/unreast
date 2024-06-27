@@ -1,3 +1,4 @@
+import { OfficeMemberSidebar } from "@/components/office/office-member-sidebar";
 import { OfficeSidebar } from "@/components/office/office-sidebar";
 import { currentProfile } from "@/lib/current-profile";
 
@@ -36,6 +37,9 @@ const OfficeIdLayout = async ({children, params}: {children:React.ReactNode; par
             <main className="h-full md:pl-60">
                 {children}
             </main>
+            <div className="hidden fixed right-0 md:flex h-full w-60 z-20 flex-col inset-y-0">
+                <OfficeMemberSidebar officeId={params.officeId}/>
+            </div>
         </div>
     )
 }

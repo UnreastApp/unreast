@@ -1,10 +1,11 @@
-import { Office } from "@prisma/client";
+import { ChannelType, Office } from "@prisma/client";
 import {create} from "zustand";
 
-export type ModalType = "createOffice" | "invite" | "editOffice" | "members" | "createChannel";
+export type ModalType = "createOffice" | "invite" | "editOffice" | "members" | "createChannel" | "leaveOffice" | "deleteOffice";
 
 interface ModalData {
-    office?: Office
+    office?: Office;
+    channelType?: ChannelType;
 }
 
 interface ModalStore {

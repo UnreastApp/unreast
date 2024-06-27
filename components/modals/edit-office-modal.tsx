@@ -77,7 +77,7 @@ export const EditOfficeModal = () => {
     // When the user clicks on "create office"
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
-            await axios.patch(`/api/offices/${office?.id}`, values);
+            await axios.patch(`/api/offices/${office?.id}/edit`, values);
 
             form.reset();
             router.refresh();
