@@ -8,9 +8,9 @@ Unreast is a chat application for business owners, simple to use and not too com
 
 ### Summary
 
-1. [Overview](Overview)
-2. [Installation Guide](installation)
-4. [Architecture](#arquitetura)
+1. [Overview](overview.md)
+2. [Installation Guide](installation.md)
+4. [Architecture](architecture.md)
     - [app](app/app.md)
     - [components](components/components.md)
     - [docs](docs/docs.md)
@@ -18,4 +18,4 @@ Unreast is a chat application for business owners, simple to use and not too com
     - [lib](lib/lib.md)
     - [prisma](prisma/prisma.md)
     - [public](public/public.md)
-6. [References](references)
+6. [References](references.md)
