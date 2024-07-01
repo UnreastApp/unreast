@@ -2,22 +2,23 @@
 
 import { useSocket } from "@/components/providers/socket-provider"
 import { Badge } from "@/components/ui/badge";
+import { Circle } from "lucide-react";
 
 const SocketIndication = () => {
     const { isConnected } = useSocket();
 
     if (!isConnected) {
         return (
-            <Badge variant="outline" className="bg-yellow-600 font-medium text-card border-none">
-                Fallback: Polling every 1s
-            </Badge>
+            <div>
+                <Circle className="text-yellow-500" />
+            </div>
         )
     }
 
     return (
-        <Badge variant="outline" className="bg-emerald-600 font-medium text-card border-none">
-            Live: Real-Time updates
-        </Badge>
+        <div>
+            <Circle className="text-green-500" />
+        </div>
     )
 
 

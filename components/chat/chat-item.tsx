@@ -177,7 +177,7 @@ export const ChatItem = ({
             </div>
           )}
           {isLink && !fileUrl &&(
-              <a href={content} target="_blank" className="text-blue-500 text-sm hover:underline">{content}</a>
+              <a href={content} target="_blank" className="text-blue-500 text-sm hover:underline w-36">{content}</a>
           )}
           {!fileUrl && !isEditing && !isLink && (
             <p className={cn( "text-sm ",deleted && "italic")}>

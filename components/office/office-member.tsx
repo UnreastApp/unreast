@@ -3,12 +3,11 @@
 import { cn } from "@/lib/utils";
 import { Member, MemberRole, Office, Profile } from "@prisma/client";
 import { ShieldAlert, ShieldCheck, User } from "lucide-react";
-import { useParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { UserAvatar } from "@/components/utils/user-avatar";
 
 interface OfficeMemberProps {
     member: Member & {profile: Profile};
-    profile: Profile;
     office: Office;
 }
 
@@ -20,7 +19,6 @@ const roleIconMap = {
 
 export const OfficeMember = ({member, office}: OfficeMemberProps) => {
 
-    const params = useParams();
     const router = useRouter();
 
     const icon = roleIconMap[member.role];
