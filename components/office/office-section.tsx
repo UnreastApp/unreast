@@ -3,7 +3,7 @@
 import { OfficeWithMembersWithProfiles } from "@/types";
 import { ChannelType, MemberRole } from "@prisma/client";
 import { ActionTooltip } from "../utils/action-tooltip";
-import { Plus, Settings } from "lucide-react";
+import { ChevronDown, Plus, Settings } from "lucide-react";
 import { useModal } from "@/hooks/use-modal-store";
 
 interface OfficeSectionProps {

@@ -35,25 +35,22 @@ import {
 
 
 
-// Error
-const formSchema = z.object({
-    name: z.string().min(1, {
-        message: "Office name is required."
-    }),
-    imageUrl: z.string().min(1, {
-        message: "Office image is required"
-    })
-})
-
-
 export const CreateOfficeModal = () => {
-
+    
     const {isOpen, onClose, type} = useModal();
     const router = useRouter();
-
+    
     const isModalOpen = isOpen && type === "createOffice";
+    
+    const formSchema = z.object({
+        name: z.string().min(1, {
+            message: "Office name is required."
+        }),
+        imageUrl: z.string().min(1, {
+            message: "Office image is required"
+        })
+    })
 
-    // Office form
     const form = useForm({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -64,7 +61,6 @@ export const CreateOfficeModal = () => {
 
     const isLoading = form.formState.isSubmitting;
 
-    // When the user clicks on "create office"
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
             await axios.post("api/offices", values);

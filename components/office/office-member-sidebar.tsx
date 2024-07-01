@@ -58,7 +58,7 @@ export const OfficeMemberSidebar = async ({officeId}: OfficeSidebarProps) => {
     const role = office.member.find((member) => member.profileId === profile.id)?.role;
 
     return (
-        <div className="flex righ flex-col border-l-2 h-full text-primary w-full">
+        <div className="flex-col border-l-2 h-full text-primary w-full">
             <ScrollArea className="flex-1 px-3">
                 <div className="mt-2">
                     <MemeberSearch data={[

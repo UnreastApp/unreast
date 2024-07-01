@@ -13,7 +13,7 @@ export async function DELETE(req: Request, { params }: { params: { memberId: str
         }
 
         if (!officeId) {
-            return new NextResponse("Server ID missing", {status: 400});
+            return new NextResponse("Office ID missing", {status: 400});
         }
 
         if (!params.memberId) {

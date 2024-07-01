@@ -15,7 +15,7 @@ export async function POST(req: Request) {
         }
 
         if (!officeId) {
-            return new NextResponse("Server ID missing", {status: 400});
+            return new NextResponse("Office ID missing", {status: 400});
         }
 
         if (name === "general") {

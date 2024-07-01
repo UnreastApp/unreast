@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
@@ -57,6 +59,7 @@ export const DeleteOfficeModal = () => {
         try {
             await axios.delete(`/api/offices/${office?.id}/delete`);
             onClose();
+            router.refresh();
             router.push("/app");
         } catch (error) {
             console.log("error");

@@ -44,29 +44,30 @@ import { useEffect } from "react";
 
 
 
-const formSchema = z.object({
-    name: z.string().min(1, {
-        message: "Channel name is required."
-    }).refine(
-        name => name !== "general",
-        {
-            message: "Channel name cannot be 'general'"
-        }
-    ),
-    type: z.nativeEnum(ChannelType)
-});
 
 
 export const CreateChannelModal = () => {
-
+    
     const {isOpen, onClose, type, data} = useModal();
     const router = useRouter();
     const params = useParams();
-
+    
     const isModalOpen = isOpen && type === "createChannel";
-
+    
     const {channelType} = data;
-
+    
+    const formSchema = z.object({
+        name: z.string().min(1, {
+            message: "Channel name is required."
+        }).refine(
+            name => name !== "general",
+            {
+                message: "Channel name cannot be 'general'"
+            }
+        ),
+        type: z.nativeEnum(ChannelType)
+    });
+    
     const form = useForm({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -116,7 +117,7 @@ export const CreateChannelModal = () => {
                         Create Channel
                     </DialogTitle>
                     <DialogDescription className="text-center text-foreground/50">
-                        Create a channel on your server to communicate.
+                        Create a channel on your office to communicate.
                     </DialogDescription>
                 </DialogHeader>
                 <Form {...form}>

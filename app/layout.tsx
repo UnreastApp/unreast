@@ -6,8 +6,10 @@ import { cn } from "@/lib/utils";
 
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { ModalProvider } from "@/components/providers/model-provider";
+import { SocketProvider } from "@/components/providers/socket-provider";
+import { QueryProvider } from "@/components/providers/query-provider";
 
-const font = Poppins({ subsets: ["latin"], weight: ["100", "200", "300", "400", "500"]});
+const font = Poppins({ subsets: ["latin"], weight: ["100", "200", "300", "400", "500"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,10 +25,14 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
         <body className={cn(font.className)}>
-          <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} storageKey="unreast-theme">
-            {children}
-            <ModalProvider/>
-          </ThemeProvider>
+          <SocketProvider>
+            <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} storageKey="unreast-theme">
+              <ModalProvider/>
+              <QueryProvider>
+                {children}
+              </QueryProvider>
+            </ThemeProvider>
+          </SocketProvider>
         </body>
       </html>
     </ClerkProvider>

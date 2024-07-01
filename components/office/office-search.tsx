@@ -131,7 +131,7 @@ export const MemeberSearch = ({data}: OfficeMemeberSearchProps) => {
         setOpen(false);
 
         if (type === "member") {
-            return router.push(`/members/${id}/conversation/`)
+            return router.push(`offices/${id}/conversation/${id}`)
         }
 
     }
